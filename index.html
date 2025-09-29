@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real Estate AI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Paddle -->
+  <script src="https://cdn.paddle.com/paddle/paddle.js"></script>
+  <script>
+    Paddle.Environment.set('sandbox'); // перед запуском в проде заменить на 'production'
+    Paddle.Setup({ vendor: 123456 }); // замени 123456 на свой VENDOR_ID
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Навбар -->
+  <header class="flex justify-between items-center p-4 shadow bg-white">
+    <h1 class="text-xl font-bold">Real Estate AI</h1>
+    <select id="langSelect" onchange="switchLang(this.value)" class="p-2 border rounded">
+      <option value="EN">🇬🇧 English</option>
+      <option value="RU">🇷🇺 Русский</option>
+    </select>
+  </header>
+
+  <!-- Hero -->
+  <section class="text-center py-20 bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
+    <h2 class="text-4xl font-bold mb-4" data-i18n="hero_title">🏠 Real Estate AI</h2>
+    <p class="text-lg mb-6" data-i18n="hero_sub">Predict property prices with AI</p>
+    <a href="#pricing" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold" data-i18n="hero_btn">🚀 Try Now</a>
+  </section>
+
+  <!-- Почему мы лучше -->
+  <section class="py-16 px-6 max-w-6xl mx-auto">
+    <h3 class="text-3xl font-bold text-center mb-12" data-i18n="why_title">Why are we better?</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white p-6 shadow rounded-lg">
+        <h4 class="font-semibold text-lg mb-2" data-i18n="excel">📊 Better than Excel</h4>
+        <p data-i18n="excel_text">Excel doesn’t learn from data. Our AI automatically analyzes the market.</p>
+      </div>
+      <div class="bg-white p-6 shadow rounded-lg">
+        <h4 class="font-semibold text-lg mb-2" data-i18n="analyst">🧑‍💼 Better than analysts</h4>
+        <p data-i18n="analyst_text">Analysts can be subjective. AI gives objective results.</p>
+      </div>
+      <div class="bg-white p-6 shadow rounded-lg">
+        <h4 class="font-semibold text-lg mb-2" data-i18n="manual">⚡ Faster than manual analysis</h4>
+        <p data-i18n="manual_text">Manual analysis takes hours. Our service predicts in seconds.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Тарифы -->
+  <section id="pricing" class="py-16 px-6 bg-gray-100">
+    <h3 class="text-3xl font-bold text-center mb-12" data-i18n="pricing_title">Pricing Plans</h3>
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <!-- Basic -->
+      <div class="bg-white p-8 shadow rounded-lg text-center">
+        <h4 class="text-xl font-semibold mb-4" data-i18n="basic">Basic</h4>
+        <p class="mb-6" data-i18n="basic_text">Linear Regression, simple forecasts</p>
+        <button onclick="buyBasic()" class="bg-blue-600 text-white px-6 py-2 rounded">Start Basic</button>
+      </div>
+      <!-- Pro -->
+      <div class="bg-white p-8 shadow rounded-lg text-center border-2 border-blue-600">
+        <h4 class="text-xl font-semibold mb-4" data-i18n="pro">Pro 🚀</h4>
+        <p class="mb-6" data-i18n="pro_text">Random Forest, XGBoost, model choice</p>
+        <button onclick="buyPro()" class="bg-indigo-600 text-white px-6 py-2 rounded">Start Pro</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 px-6 max-w-4xl mx-auto">
+    <h3 class="text-3xl font-bold text-center mb-12" data-i18n="faq_title">❓ FAQ</h3>
+    <div class="space-y-6">
+      <div>
+        <h4 class="font-semibold" data-i18n="faq_q1">How to upload data?</h4>
+        <p data-i18n="faq_a1">Upload a CSV file with columns: city, sqft, rooms, bathrooms, price.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold" data-i18n="faq_q2">What does R² mean?</h4>
+        <p data-i18n="faq_a2">R² shows how well the model explains the data (1.0 = perfect).</p>
+      </div>
+      <div>
+        <h4 class="font-semibold" data-i18n="faq_q3">What is MAE?</h4>
+        <p data-i18n="faq_a3">MAE = average difference between prediction and real price.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold" data-i18n="faq_q4">Why do I need a license?</h4>
+        <p data-i18n="faq_a4">A license gives access to Basic or Pro features.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Форма обратной связи -->
+  <section id="contact" class="py-16 px-6 bg-gray-100">
+    <h3 class="text-3xl font-bold text-center mb-12" data-i18n="contact_title">📩 Contact Us</h3>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="max-w-xl mx-auto space-y-4 bg-white shadow p-6 rounded-lg">
+      <input type="text" name="name" placeholder="Your Name" class="w-full border p-2 rounded" required>
+      <input type="email" name="email" placeholder="Your Email" class="w-full border p-2 rounded" required>
+      <textarea name="message" placeholder="Your Message" class="w-full border p-2 rounded" rows="4" required></textarea>
+      <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded w-full">Send</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white text-center py-6">
+    <p data-i18n="footer">© 2025 Real Estate AI — All rights reserved</p>
+  </footer>
+
+  <!-- Paddle Buy -->
+  <script>
+    function buyBasic() {
+      Paddle.Checkout.open({
+        product: 11111, // ID Basic
+        success: '/success.html',
+        cancel: '/cancel.html'
+      });
+    }
+    function buyPro() {
+      Paddle.Checkout.open({
+        product: 22222, // ID Pro
+        success: '/success.html',
+        cancel: '/cancel.html'
+      });
+    }
+  </script>
+
+  <!-- Локализация -->
+  <script>
+    const TEXTS = {
+      "RU": { 
+        hero_title: "🏠 ИИ для недвижимости",
+        hero_sub: "Прогнозируй цены недвижимости с помощью ИИ",
+        hero_btn: "🚀 Попробовать сейчас",
+        why_title: "Почему мы лучше?",
+        excel: "📊 Лучше, чем Excel",
+        excel_text: "Excel не обучается на данных. Наш ИИ анализирует рынок автоматически.",
+        analyst: "🧑‍💼 Лучше аналитиков",
+        analyst_text: "Аналитики субъективны. ИИ выдаёт объективный результат.",
+        manual: "⚡ Быстрее ручного анализа",
+        manual_text: "Ручной анализ занимает часы. Наш сервис прогнозирует за секунды.",
+        pricing_title: "Тарифные планы",
+        basic: "Basic",
+        basic_text: "Линейная регрессия, простые прогнозы",
+        pro: "Pro 🚀",
+        pro_text: "Random Forest, XGBoost, выбор модели",
+        faq_title: "❓ Часто задаваемые вопросы",
+        faq_q1: "Как загрузить данные?",
+        faq_a1: "Загрузите CSV файл со столбцами: city, sqft, rooms, bathrooms, price.",
+        faq_q2: "Что значит R²?",
+        faq_a2: "R² показывает, насколько хорошо модель объясняет данные (1.0 = идеально).",
+        faq_q3: "Что такое MAE?",
+        faq_a3: "MAE — это средняя абсолютная ошибка, отличие прогноза от цены.",
+        faq_q4: "Зачем нужен ключ лицензии?",
+        faq_a4: "Ключ открывает доступ к возможностям Basic или Pro.",
+        contact_title: "📩 Свяжитесь с нами",
+        footer: "© 2025 Real Estate AI — Все права защищены",
+      },
+      "EN": {
+        hero_title: "🏠 Real Estate AI",
+        hero_sub: "Predict property prices with AI",
+        hero_btn: "🚀 Try Now",
+        why_title: "Why are we better?",
+        excel: "📊 Better than Excel",
+        excel_text: "Excel doesn’t learn from data. Our AI automatically analyzes the market.",
+        analyst: "🧑‍💼 Better than analysts",
+        analyst_text: "Analysts can be subjective. AI gives objective results.",
+        manual: "⚡ Faster than manual analysis",
+        manual_text: "Manual analysis takes hours. Our service predicts in seconds.",
+        pricing_title: "Pricing Plans",
+        basic: "Basic",
+        basic_text: "Linear Regression, simple forecasts",
+        pro: "Pro 🚀",
+        pro_text: "Random Forest, XGBoost, model choice",
+        faq_title: "❓ FAQ",
+        faq_q1: "How to upload data?",
+        faq_a1: "Upload a CSV file with columns: city, sqft, rooms, bathrooms, price.",
+        faq_q2: "What does R² mean?",
+        faq_a2: "R² shows how well the model explains the data (1.0 = perfect).",
+        faq_q3: "What is MAE?",
+        faq_a3: "MAE = average difference between prediction and real price.",
+        faq_q4: "Why do I need a license?",
+        faq_a4: "A license gives access to Basic or Pro features.",
+        contact_title: "📩 Contact Us",
+        footer: "© 2025 Real Estate AI — All rights reserved",
+      }
+    };
+
+    function switchLang(lang) {
+      localStorage.setItem("lang", lang);
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        el.innerText = TEXTS[lang][key];
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedLang = localStorage.getItem("lang") || "EN";
+      switchLang(savedLang);
+      document.querySelector("#langSelect").value = savedLang;
+    });
+  </script>
+</body>
+</html>
+
