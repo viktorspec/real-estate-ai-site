@@ -109,21 +109,22 @@
 
   <!-- Paddle Buy -->
   <script>
-    function buyBasic() {
-      Paddle.Checkout.open({
-        product: 11111, // ID Basic
-        success: '/success.html',
-        cancel: '/cancel.html'
-      });
-    }
-    function buyPro() {
-      Paddle.Checkout.open({
-        product: 22222, // ID Pro
-        success: '/success.html',
-        cancel: '/cancel.html'
-      });
-    }
-  </script>
+  function buyBasic() {
+    Paddle.Checkout.open({
+      product: 11111, // заменишь на ID Basic из Paddle
+      success: 'https://real-estate-ai-site.vercel.app/success.html',
+      cancel: 'https://real-estate-ai-site.vercel.app/cancel.html'
+    });
+  }
+  function buyPro() {
+    Paddle.Checkout.open({
+      product: 22222, // заменишь на ID Pro из Paddle
+      success: 'https://real-estate-ai-site.vercel.app/success.html',
+      cancel: 'https://real-estate-ai-site.vercel.app/cancel.html'
+    });
+  }
+</script>
+
 
   <!-- Локализация -->
   <script>
@@ -202,4 +203,5 @@
   </script>
 </body>
 </html>
+
 
