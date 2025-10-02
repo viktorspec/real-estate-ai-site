@@ -92,15 +92,59 @@
   </section>
 
   <!-- Форма обратной связи -->
-  <section id="contact" class="py-16 px-6 bg-gray-100">
-    <h3 class="text-3xl font-bold text-center mb-12" data-i18n="contact_title">📩 Contact Us</h3>
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="max-w-xl mx-auto space-y-4 bg-white shadow p-6 rounded-lg">
-      <input type="text" name="name" placeholder="Your Name" class="w-full border p-2 rounded" required>
-      <input type="email" name="email" placeholder="Your Email" class="w-full border p-2 rounded" required>
-      <textarea name="message" placeholder="Your Message" class="w-full border p-2 rounded" rows="4" required></textarea>
-      <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded w-full">Send</button>
+  <section id="contact" style="padding:80px 20px; background:linear-gradient(135deg,#f9fafb,#eef2ff);">
+  <div style="max-width:700px; margin:0 auto; text-align:center;">
+    <h2 style="font-size:2.5em; font-weight:700; margin-bottom:15px; color:#111827;">
+      Свяжитесь с нами
+    </h2>
+    <p style="margin-bottom:40px; font-size:1.1em; color:#374151;">
+      У вас есть вопросы или предложения? Напишите нам — мы ответим в ближайшее время.
+    </p>
+
+    <form action="https://formspree.io/f/xdkwzdak" method="POST" 
+          style="display:flex; flex-direction:column; gap:20px; text-align:left;">
+      
+      <div>
+        <label style="display:block; margin-bottom:6px; font-weight:500; color:#374151;">Ваше имя</label>
+        <input type="text" name="name" placeholder="Введите имя" required
+               style="width:100%; padding:14px; border:1px solid #d1d5db; border-radius:10px; font-size:1em; transition:all 0.3s;">
+      </div>
+
+      <div>
+        <label style="display:block; margin-bottom:6px; font-weight:500; color:#374151;">Email</label>
+        <input type="email" name="_replyto" placeholder="Введите email" required
+               style="width:100%; padding:14px; border:1px solid #d1d5db; border-radius:10px; font-size:1em; transition:all 0.3s;">
+      </div>
+
+      <div>
+        <label style="display:block; margin-bottom:6px; font-weight:500; color:#374151;">Сообщение</label>
+        <textarea name="message" rows="5" placeholder="Ваше сообщение..." required
+                  style="width:100%; padding:14px; border:1px solid #d1d5db; border-radius:10px; font-size:1em; transition:all 0.3s;"></textarea>
+      </div>
+
+      <button type="submit"
+              style="padding:16px; background:#2563eb; color:white; font-size:1.1em; font-weight:600; border:none; border-radius:12px; cursor:pointer; transition:all 0.3s;">
+        🚀 Отправить сообщение
+      </button>
     </form>
-  </section>
+  </div>
+</section>
+
+<script>
+  // Анимация при наведении
+  document.querySelectorAll("input, textarea").forEach(el => {
+    el.addEventListener("focus", () => el.style.borderColor = "#2563eb");
+    el.addEventListener("blur", () => el.style.borderColor = "#d1d5db");
+  });
+
+  document.querySelector("button[type=submit]").addEventListener("mouseover", (e)=>{
+    e.target.style.background = "#1e40af";
+  });
+  document.querySelector("button[type=submit]").addEventListener("mouseout", (e)=>{
+    e.target.style.background = "#2563eb";
+  });
+</script>
+
 
   <!-- Footer -->
   <footer class="bg-gray-900 text-white text-center py-6">
@@ -203,5 +247,6 @@
   </script>
 </body>
 </html>
+
 
 
