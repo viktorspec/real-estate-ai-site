@@ -92,59 +92,22 @@
   </section>
 
   <!-- Форма обратной связи -->
-  <section id="contact" style="padding:80px 20px; background:linear-gradient(135deg,#f9fafb,#eef2ff);">
-  <div style="max-width:700px; margin:0 auto; text-align:center;">
-    <h2 style="font-size:2.5em; font-weight:700; margin-bottom:15px; color:#111827;">
-      Свяжитесь с нами
-    </h2>
-    <p style="margin-bottom:40px; font-size:1.1em; color:#374151;">
-      У вас есть вопросы или предложения? Напишите нам — мы ответим в ближайшее время.
-    </p>
+ <h2 style="text-align:center; margin-bottom:20px;">Свяжитесь с нами</h2>
+<p style="text-align:center; color:#555;">У вас есть вопросы или предложения? Напишите нам — мы ответим в ближайшее время.</p>
 
-   <form action="https://formspree.io/f/xdkwzdak" method="POST" onsubmit="window.location.href='/success.html'; return false;">
+<form action="https://formspree.io/f/xdkwzdak" method="POST" 
+      style="display:flex; flex-direction:column; gap:20px; max-width:500px; margin:0 auto;">
 
-          style="display:flex; flex-direction:column; gap:20px; text-align:left;">
-      
-      <div>
-        <label style="display:block; margin-bottom:6px; font-weight:500; color:#374151;">Ваше имя</label>
-        <input type="text" name="name" placeholder="Введите имя" required
-               style="width:100%; padding:14px; border:1px solid #d1d5db; border-radius:10px; font-size:1em; transition:all 0.3s;">
-      </div>
+  <label for="name">Ваше имя</label>
+  <input id="name" type="text" name="name" placeholder="Введите имя" required
+         style="padding:10px; border:1px solid #ccc; border-radius:8px;">
 
-      <div>
-        <label style="display:block; margin-bottom:6px; font-weight:500; color:#374151;">Email</label>
-        <input type="email" name="_replyto" placeholder="Введите email" required
-               style="width:100%; padding:14px; border:1px solid #d1d5db; border-radius:10px; font-size:1em; transition:all 0.3s;">
-      </div>
+  <label for="email">Email</label>
+  <input id="email" type="email" name="email" placeholder="Введите email" required
+         style="padding:10px; border:1px solid #ccc; border-radius:8px;">
 
-      <div>
-        <label style="display:block; margin-bottom:6px; font-weight:500; color:#374151;">Сообщение</label>
-        <textarea name="message" rows="5" placeholder="Ваше сообщение..." required
-                  style="width:100%; padding:14px; border:1px solid #d1d5db; border-radius:10px; font-size:1em; transition:all 0.3s;"></textarea>
-      </div>
+ 
 
-      <button type="submit"
-              style="padding:16px; background:#2563eb; color:white; font-size:1.1em; font-weight:600; border:none; border-radius:12px; cursor:pointer; transition:all 0.3s;">
-        🚀 Отправить сообщение
-      </button>
-    </form>
-  </div>
-</section>
-
-<script>
-  // Анимация при наведении
-  document.querySelectorAll("input, textarea").forEach(el => {
-    el.addEventListener("focus", () => el.style.borderColor = "#2563eb");
-    el.addEventListener("blur", () => el.style.borderColor = "#d1d5db");
-  });
-
-  document.querySelector("button[type=submit]").addEventListener("mouseover", (e)=>{
-    e.target.style.background = "#1e40af";
-  });
-  document.querySelector("button[type=submit]").addEventListener("mouseout", (e)=>{
-    e.target.style.background = "#2563eb";
-  });
-</script>
 
 
   <!-- Footer -->
@@ -248,6 +211,7 @@
   </script>
 </body>
 </html>
+
 
 
 
