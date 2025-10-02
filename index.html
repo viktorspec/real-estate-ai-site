@@ -92,7 +92,7 @@
   </section>
 
   <!-- Форма обратной связи -->
- <h2 style="text-align:center; margin-bottom:20px;">Свяжитесь с нами</h2>
+<h2 style="text-align:center; margin-bottom:20px;">Свяжитесь с нами</h2>
 <p style="text-align:center; color:#555;">У вас есть вопросы или предложения? Напишите нам — мы ответим в ближайшее время.</p>
 
 <form action="https://formspree.io/f/xdkwzdak" method="POST" 
@@ -103,10 +103,22 @@
          style="padding:10px; border:1px solid #ccc; border-radius:8px;">
 
   <label for="email">Email</label>
-  <input id="email" type="email" name="email" placeholder="Введите email" required
+  <input id="email" type="email" name="_replyto" placeholder="Введите email" required
          style="padding:10px; border:1px solid #ccc; border-radius:8px;">
 
- 
+  <label for="message">Сообщение</label>
+  <textarea id="message" name="message" placeholder="Ваше сообщение..." required
+            style="padding:10px; border:1px solid #ccc; border-radius:8px; min-height:120px;"></textarea>
+
+  <!-- скрытое поле с корпоративным email -->
+  <input type="hidden" name="_to" value="realestate-ai.agency@zohomail.eu">
+
+  <button type="submit" 
+          style="padding:12px; background:#2563eb; color:white; border:none; border-radius:8px; font-size:16px; cursor:pointer;">
+    🚀 Отправить сообщение
+  </button>
+</form>
+
 
 
 
@@ -211,6 +223,7 @@
   </script>
 </body>
 </html>
+
 
 
 
