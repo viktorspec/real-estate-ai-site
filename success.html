@@ -1,66 +1,50 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Сообщение отправлено</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: linear-gradient(135deg, #f9fafb, #eef2ff);
-    }
-    .box {
-      background: white;
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      text-align: center;
-      max-width: 400px;
-    }
-    .check {
-      font-size: 70px;
-      color: #22c55e;
-      margin-bottom: 20px;
-    }
-    h1 {
-      font-size: 1.8em;
-      margin-bottom: 15px;
-      color: #111827;
-    }
-    p {
-      font-size: 1.1em;
-      color: #374151;
-      margin-bottom: 30px;
-    }
-    a {
-      display: inline-block;
-      text-decoration: none;
-      background: #2563eb;
-      color: white;
-      padding: 14px 24px;
-      border-radius: 10px;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-    a:hover {
-      background: #1e40af;
-    }
-  </style>
+  <title>Payment Success</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <div class="box">
-    <div class="check">✅</div>
-    <h1>Ваше сообщение отправлено!</h1>
-    <p>Спасибо за обратную связь. Мы свяжемся с вами в ближайшее время.</p>
-    <a href="index.html">⬅ Вернуться на главную</a>
+<body class="bg-green-50 text-gray-800 flex flex-col items-center justify-center min-h-screen">
+
+  <div class="bg-white p-10 rounded-xl shadow-lg text-center max-w-lg">
+    <h1 class="text-4xl font-bold text-green-600 mb-4" data-i18n="success_title">✅ Payment Successful!</h1>
+    <p class="text-lg mb-6" data-i18n="success_msg">Thank you for your purchase. Your license key will be sent to your email.</p>
+    <a href="/" class="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold" data-i18n="back_home">🏠 Back to Home</a>
   </div>
+
+  <!-- Локализация -->
+  <script>
+    const TEXTS = {
+      "RU": {
+        success_title: "✅ Оплата прошла успешно!",
+        success_msg: "Спасибо за покупку. Ваш лицензионный ключ будет отправлен на email.",
+        back_home: "🏠 На главную"
+      },
+      "EN": {
+        success_title: "✅ Payment Successful!",
+        success_msg: "Thank you for your purchase. Your license key will be sent to your email.",
+        back_home: "🏠 Back to Home"
+      }
+    };
+
+    function switchLang(lang) {
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        el.innerText = TEXTS[lang][key];
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedLang = localStorage.getItem("lang") || "EN";
+      switchLang(savedLang);
+    });
+  </script>
 </body>
 </html>
+
+
 
 
 
