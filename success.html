@@ -3,46 +3,79 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Payment Success</title>
+  <title>Payment Success — Real Estate AI</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-green-50 text-gray-800 flex flex-col items-center justify-center min-h-screen">
 
-  <div class="bg-white p-10 rounded-xl shadow-lg text-center max-w-lg">
+<body class="bg-green-50 text-gray-800 flex flex-col items-center justify-center min-h-screen p-4">
+
+  <div class="bg-white p-10 rounded-2xl shadow-xl text-center max-w-lg">
     <h1 class="text-4xl font-bold text-green-600 mb-4" data-i18n="success_title">✅ Payment Successful!</h1>
-    <p class="text-lg mb-6" data-i18n="success_msg">Thank you for your purchase. Your license key will be sent to your email.</p>
-    <a href="/" class="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold" data-i18n="back_home">🏠 Back to Home</a>
+
+    <p class="text-lg mb-6" id="message" data-i18n="success_msg">
+      Thank you for your purchase! Your license key will be sent to your email.
+    </p>
+
+    <a id="openApp" 
+       href="https://realestate-ai.agency/app"
+       class="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-green-700 transition">
+       🚀 Open Real Estate AI App
+    </a>
+
+    <p class="text-gray-500 text-sm mt-4" data-i18n="note">
+      You will be redirected automatically in a few seconds...
+    </p>
   </div>
 
-  <!-- Локализация -->
   <script>
+    /* --- Localization --- */
     const TEXTS = {
-      "RU": {
-        success_title: "✅ Оплата прошла успешно!",
-        success_msg: "Спасибо за покупку. Ваш лицензионный ключ будет отправлен на email.",
-        back_home: "🏠 На главную"
-      },
       "EN": {
         success_title: "✅ Payment Successful!",
-        success_msg: "Thank you for your purchase. Your license key will be sent to your email.",
-        back_home: "🏠 Back to Home"
+        success_msg: "Thank you for your purchase! Your license key will be sent to your email.<br><br>Click below to open the app:",
+        note: "You will be redirected automatically in a few seconds...",
+      },
+      "RU": {
+        success_title: "✅ Оплата прошла успешно!",
+        success_msg: "Спасибо за покупку! Ваш лицензионный ключ будет отправлен на email.<br><br>Нажмите ниже, чтобы открыть приложение:",
+        note: "Вы будете автоматически перенаправлены через несколько секунд...",
       }
     };
 
     function switchLang(lang) {
       document.querySelectorAll("[data-i18n]").forEach(el => {
         const key = el.getAttribute("data-i18n");
-        el.innerText = TEXTS[lang][key];
+        el.innerHTML = TEXTS[lang][key];
       });
     }
 
     document.addEventListener("DOMContentLoaded", () => {
       const savedLang = localStorage.getItem("lang") || "EN";
       switchLang(savedLang);
+
+      // --- Retrieve saved email and license if available ---
+      const email = localStorage.getItem("user_email");
+      const key = localStorage.getItem("license_key");
+
+      // --- Prepare link to Streamlit app ---
+      const baseUrl = "https://realestate-ai.agency/app";
+      let targetUrl = baseUrl;
+
+      if (email && key) {
+        targetUrl = `${baseUrl}?email=${encodeURIComponent(email)}&key=${encodeURIComponent(key)}`;
+      }
+
+      const appLink = document.getElementById("openApp");
+      appLink.href = targetUrl;
+
+      // --- Auto redirect after 5 seconds ---
+      setTimeout(() => window.location.href = targetUrl, 5000);
     });
   </script>
 </body>
 </html>
+
+
 
 
 
