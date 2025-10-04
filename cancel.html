@@ -3,45 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Payment Canceled</title>
+  <title>Payment Canceled — Real Estate AI</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-red-50 text-gray-800 flex flex-col items-center justify-center min-h-screen">
 
-  <div class="bg-white p-10 rounded-xl shadow-lg text-center max-w-lg">
+<body class="bg-red-50 text-gray-800 flex flex-col items-center justify-center min-h-screen p-4">
+
+  <div class="bg-white p-10 rounded-2xl shadow-xl text-center max-w-lg">
     <h1 class="text-4xl font-bold text-red-600 mb-4" data-i18n="cancel_title">❌ Payment Canceled</h1>
-    <p class="text-lg mb-6" data-i18n="cancel_msg">Your payment was not completed. Please try again.</p>
-    <a href="/" class="bg-red-600 text-white px-6 py-3 rounded-lg font-semibold" data-i18n="back_home">🏠 Back to Home</a>
+
+    <p class="text-lg mb-6" id="message" data-i18n="cancel_msg">
+      Your payment was not completed. You can try again or return to the main page.
+    </p>
+
+    <a id="goHome"
+       href="/"
+       class="inline-block bg-red-600 text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-red-700 transition">
+       🏠 Back to Home
+    </a>
+
+    <p class="text-gray-500 text-sm mt-4" data-i18n="note">
+      You will be redirected automatically in a few seconds...
+    </p>
   </div>
 
-  <!-- Локализация -->
   <script>
+    /* --- Localization --- */
     const TEXTS = {
-      "RU": {
-        cancel_title: "❌ Оплата отменена",
-        cancel_msg: "Ваша оплата не была завершена. Попробуйте снова.",
-        back_home: "🏠 На главную"
-      },
       "EN": {
         cancel_title: "❌ Payment Canceled",
-        cancel_msg: "Your payment was not completed. Please try again.",
-        back_home: "🏠 Back to Home"
+        cancel_msg: "Your payment was not completed. You can try again or return to the main page.",
+        note: "You will be redirected automatically in a few seconds..."
+      },
+      "RU": {
+        cancel_title: "❌ Оплата отменена",
+        cancel_msg: "Ваша оплата не была завершена. Вы можете попробовать снова или вернуться на главную страницу.",
+        note: "Вы будете автоматически перенаправлены через несколько секунд..."
       }
     };
 
     function switchLang(lang) {
       document.querySelectorAll("[data-i18n]").forEach(el => {
         const key = el.getAttribute("data-i18n");
-        el.innerText = TEXTS[lang][key];
+        el.innerHTML = TEXTS[lang][key];
       });
     }
 
     document.addEventListener("DOMContentLoaded", () => {
       const savedLang = localStorage.getItem("lang") || "EN";
       switchLang(savedLang);
+
+      // --- Prepare redirect to homepage ---
+      const homeUrl = "https://realestate-ai.agency/";
+      const goHome = document.getElementById("goHome");
+      goHome.href = homeUrl;
+
+      // --- Auto redirect after 5 seconds ---
+      setTimeout(() => window.location.href = homeUrl, 5000);
     });
   </script>
 </body>
 </html>
+
 
 
