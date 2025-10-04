@@ -50,23 +50,79 @@
   </section>
 
   <!-- Тарифы -->
-  <section id="pricing" class="py-16 px-6 bg-gray-100">
-    <h3 class="text-3xl font-bold text-center mb-12" data-i18n="pricing_title">Pricing Plans</h3>
-    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-      <!-- Basic -->
-      <div class="bg-white p-8 shadow rounded-lg text-center">
-        <h4 class="text-xl font-semibold mb-4" data-i18n="basic">Basic</h4>
-        <p class="mb-6" data-i18n="basic_text">Linear Regression, simple forecasts</p>
-        <button onclick="buyBasic()" class="bg-blue-600 text-white px-6 py-2 rounded">Start Basic</button>
-      </div>
-      <!-- Pro -->
-      <div class="bg-white p-8 shadow rounded-lg text-center border-2 border-blue-600">
-        <h4 class="text-xl font-semibold mb-4" data-i18n="pro">Pro 🚀</h4>
-        <p class="mb-6" data-i18n="pro_text">Random Forest, XGBoost, model choice</p>
-        <button onclick="buyPro()" class="bg-indigo-600 text-white px-6 py-2 rounded">Start Pro</button>
-      </div>
+  <!-- Тарифы -->
+<section id="pricing" class="py-16 px-6 bg-gray-100">
+  <h3 class="text-3xl font-bold text-center mb-12" data-i18n="pricing_title">Pricing Plans</h3>
+
+  <div class="max-w-md mx-auto mb-10 text-center">
+    <p class="text-lg mb-3 text-gray-700" data-i18n="enter_email">
+      Enter your email to receive the license key:
+    </p>
+    <input id="emailInput" type="email" placeholder="you@example.com"
+           class="w-full p-3 border rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-blue-500"
+           required>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+    <!-- Basic -->
+    <div class="bg-white p-8 shadow rounded-lg text-center">
+      <h4 class="text-xl font-semibold mb-2" data-i18n="basic">Basic</h4>
+      <p class="text-3xl font-bold mb-2">$10<span class="text-gray-500 text-base"> / month</span></p>
+      <p class="mb-6 text-gray-600" data-i18n="basic_text">Linear Regression, simple forecasts</p>
+      <button onclick="buyPlan('basic')" 
+              class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+        🚀 Start Basic
+      </button>
     </div>
-  </section>
+
+    <!-- Pro -->
+    <div class="bg-white p-8 shadow rounded-lg text-center border-2 border-blue-600">
+      <h4 class="text-xl font-semibold mb-2" data-i18n="pro">Pro 🚀</h4>
+      <p class="text-3xl font-bold mb-2">$25<span class="text-gray-500 text-base"> / month</span></p>
+      <p class="mb-6 text-gray-600" data-i18n="pro_text">Random Forest, XGBoost, model choice</p>
+      <button onclick="buyPlan('pro')" 
+              class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition">
+        🌟 Start Pro
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Paddle Checkout + LocalStorage -->
+<script>
+  Paddle.Environment.set('production'); // 'sandbox' — для тестирования
+  Paddle.Setup({ vendor: 123456 }); // 🔹 замени 123456 на свой VENDOR_ID из Paddle
+
+  function buyPlan(plan) {
+    const email = document.getElementById("emailInput").value.trim();
+
+    if (!email) {
+      alert("Please enter your email before continuing 💌");
+      return;
+    }
+
+    // сохраняем email и план в localStorage
+    localStorage.setItem("user_email", email);
+    localStorage.setItem("selected_plan", plan);
+
+    if (plan === 'basic') {
+      Paddle.Checkout.open({
+        product: 111111, // 🔹 замени на ID продукта Basic ($10)
+        email: email,
+        success: '/success.html',
+        cancel: '/cancel.html'
+      });
+    } else if (plan === 'pro') {
+      Paddle.Checkout.open({
+        product: 222222, // 🔹 замени на ID продукта Pro ($25)
+        email: email,
+        success: '/success.html',
+        cancel: '/cancel.html'
+      });
+    }
+  }
+</script>
+
 
   <!-- FAQ -->
   <section class="py-16 px-6 max-w-4xl mx-auto">
@@ -244,6 +300,7 @@
   </script>
 </body>
 </html>
+
 
 
 
