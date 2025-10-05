@@ -23,7 +23,8 @@
 </head>
 <body>
   <select id="languageSelect" class="lang-select">
-    <option value="en">🌐 English</option>
+    <option value="" disabled selected>🌐 Select language</option>
+    <option value="en">🇬🇧 English</option>
     <option value="ru">🇷🇺 Русский</option>
   </select>
 
@@ -32,12 +33,16 @@
   <div id="en">
     <h2>Privacy Policy</h2>
     <p>We at Real Estate AI Agency (“we”, “our”, “us”) respect your privacy. This Privacy Policy describes how we collect, use, and protect your information.</p>
+
     <h3>1. Data Collection</h3>
     <p>We collect minimal personal data such as your email and license key to enable access to our AI tools.</p>
+
     <h3>2. Data Use</h3>
     <p>Your information is used only for license validation, analytics, and service improvements. We never sell your data.</p>
+
     <h3>3. Security</h3>
     <p>We use encryption and secure APIs to protect your information from unauthorized access.</p>
+
     <h3>4. Contact</h3>
     <p>If you have questions about this policy, contact us at <a href="mailto:realestate-ai.agency@zohomail.eu">realestate-ai.agency@zohomail.eu</a>.</p>
   </div>
@@ -45,12 +50,16 @@
   <div id="ru" style="display:none;">
     <h2>Политика конфиденциальности</h2>
     <p>Мы в Real Estate AI Agency («мы») уважаем вашу конфиденциальность. Настоящая политика описывает, как мы собираем, используем и защищаем ваши данные.</p>
+
     <h3>1. Сбор данных</h3>
     <p>Мы собираем минимальный объём данных, таких как email и лицензионный ключ, чтобы предоставить доступ к инструментам ИИ.</p>
+
     <h3>2. Использование данных</h3>
     <p>Информация используется только для проверки лицензий, аналитики и улучшения сервиса. Мы никогда не продаём ваши данные.</p>
+
     <h3>3. Безопасность</h3>
     <p>Мы используем шифрование и защищённые API для защиты ваших данных от несанкционированного доступа.</p>
+
     <h3>4. Контакты</h3>
     <p>Если у вас есть вопросы, напишите нам: <a href="mailto:realestate-ai.agency@zohomail.eu">realestate-ai.agency@zohomail.eu</a>.</p>
   </div>
@@ -84,6 +93,7 @@
     const savedLang = localStorage.getItem("lang") || (navigator.language.startsWith("ru") ? "ru" : "en");
     setLanguage(savedLang);
     langSelect.addEventListener("change", (e) => setLanguage(e.target.value));
+    langSelect.querySelector('option[value=""]').style.display = 'none';
   </script>
 </body>
 </html>
