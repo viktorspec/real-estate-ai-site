@@ -23,7 +23,8 @@
 </head>
 <body>
   <select id="languageSelect" class="lang-select">
-    <option value="en">🌐 English</option>
+    <option value="" disabled selected>🌐 Select language</option>
+    <option value="en">🇬🇧 English</option>
     <option value="ru">🇷🇺 Русский</option>
   </select>
 
@@ -84,6 +85,7 @@
     const savedLang = localStorage.getItem("lang") || (navigator.language.startsWith("ru") ? "ru" : "en");
     setLanguage(savedLang);
     langSelect.addEventListener("change", (e) => setLanguage(e.target.value));
+    langSelect.querySelector('option[value=""]').style.display = 'none';
   </script>
 </body>
 </html>
