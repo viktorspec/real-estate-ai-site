@@ -5,17 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy Policy — Real Estate AI Agency</title>
 <style>
-  body { font-family: "Inter", sans-serif; margin: 40px auto; max-width: 800px; line-height: 1.6; color: #1f2937; background: #f9fafb; }
-  h1, h2 { color: #1E3A8A; }
-  footer { text-align: center; margin-top: 50px; color: #6b7280; font-size: 0.9em; }
+  body { background-color: #0b1120; color: #e5e7eb; font-family: "Inter", sans-serif; margin: 40px auto; max-width: 850px; line-height: 1.7; }
+  h1, h2 { color: #60a5fa; }
+  a { color: #93c5fd; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  footer { text-align: center; margin-top: 60px; color: #9ca3af; font-size: 0.9em; }
 </style>
 <script>
-  const userLang = navigator.language || navigator.userLanguage;
-  const isRu = userLang.startsWith('ru');
+  const lang = navigator.language || navigator.userLanguage;
   window.onload = () => {
-    document.getElementById('en').style.display = isRu ? 'none' : 'block';
-    document.getElementById('ru').style.display = isRu ? 'block' : 'none';
-  }
+    const isRu = lang.startsWith("ru");
+    document.getElementById("en").style.display = isRu ? "none" : "block";
+    document.getElementById("ru").style.display = isRu ? "block" : "none";
+  };
 </script>
 </head>
 <body>
@@ -23,28 +25,28 @@
 
   <div id="en">
     <h2>Privacy Policy</h2>
-    <p>Your privacy is important to us. This policy explains how we collect and use your data.</p>
-    <h3>1. Data Collection</h3>
-    <p>We collect your email and license key for authentication and support. Uploaded files remain private and are processed securely.</p>
+    <p>We respect your privacy. This policy explains how we handle your data.</p>
+    <h3>1. Information Collection</h3>
+    <p>We collect email and license data for user verification and support. Uploaded files remain private.</p>
     <h3>2. Cookies</h3>
-    <p>Our site may use cookies to enhance user experience. You can disable them in your browser settings.</p>
-    <h3>3. Third Parties</h3>
-    <p>We do not sell or share personal data with third parties, except as required by law.</p>
+    <p>Cookies may be used to improve your browsing experience.</p>
+    <h3>3. Data Security</h3>
+    <p>We implement secure methods to protect user data.</p>
     <h3>4. Contact</h3>
     <p>For privacy-related inquiries: <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a></p>
   </div>
 
   <div id="ru" style="display:none;">
     <h2>Политика конфиденциальности</h2>
-    <p>Мы уважаем вашу конфиденциальность. В этом разделе описано, как мы собираем и используем данные.</p>
-    <h3>1. Сбор данных</h3>
-    <p>Мы собираем ваш email и лицензионный ключ для авторизации и поддержки. Загруженные файлы не передаются третьим лицам.</p>
+    <p>Мы уважаем вашу конфиденциальность. В этом документе описано, как мы обрабатываем ваши данные.</p>
+    <h3>1. Сбор информации</h3>
+    <p>Мы собираем email и лицензионные данные для верификации пользователей. Загруженные файлы остаются конфиденциальными.</p>
     <h3>2. Cookies</h3>
-    <p>Наш сайт может использовать cookies для улучшения работы. Вы можете отключить их в настройках браузера.</p>
-    <h3>3. Третьи стороны</h3>
-    <p>Мы не продаём и не передаём ваши данные третьим лицам, за исключением случаев, предусмотренных законом.</p>
+    <p>Cookies используются для улучшения работы сайта.</p>
+    <h3>3. Безопасность данных</h3>
+    <p>Мы используем безопасные методы для защиты информации.</p>
     <h3>4. Контакты</h3>
-    <p>По вопросам конфиденциальности: <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a></p>
+    <p>Вопросы по защите данных: <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a></p>
   </div>
 
   <footer>
