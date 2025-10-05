@@ -1,59 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Terms & Conditions — Real Estate AI Agency</title>
 <style>
-  body { background-color: #0b1120; color: #e5e7eb; font-family: "Inter", sans-serif; margin: 40px auto; max-width: 850px; line-height: 1.7; }
+  body {
+    background-color: #0b1120;
+    color: #e5e7eb;
+    font-family: "Inter", sans-serif;
+    margin: 40px auto;
+    max-width: 850px;
+    line-height: 1.7;
+    transition: opacity 0.3s ease;
+  }
   h1, h2 { color: #60a5fa; }
   a { color: #93c5fd; text-decoration: none; }
   a:hover { text-decoration: underline; }
   footer { text-align: center; margin-top: 60px; color: #9ca3af; font-size: 0.9em; }
+  .lang-select { position: fixed; top: 20px; right: 20px; background: #1e293b; color: #e5e7eb; border: none; border-radius: 6px; padding: 6px 10px; }
 </style>
-<script>
-  window.onload = () => {
-    const lang = navigator.language || navigator.userLanguage;
-    const isRu = lang.startsWith("ru");
-    document.getElementById("en").style.display = isRu ? "none" : "block";
-    document.getElementById("ru").style.display = isRu ? "block" : "none";
-  };
-</script>
 </head>
 <body>
+  <select id="languageSelect" class="lang-select">
+    <option value="en">🌐 English</option>
+    <option value="ru">🇷🇺 Русский</option>
+  </select>
+
   <h1>🏠 Real Estate AI Agency — Intelligent Property Solutions</h1>
 
-  <!-- English -->
   <div id="en">
     <h2>Terms & Conditions</h2>
     <p>Welcome to Real Estate AI Agency (“we”, “our”, “us”). By using our website and AI-based tools, you agree to these Terms & Conditions.</p>
     <h3>1. Services</h3>
-    <p>Our service provides data analytics and property valuation using artificial intelligence.</p>
+    <p>Our platform provides AI-powered analytics and property valuation tools.</p>
     <h3>2. Licenses</h3>
-    <p>Each license key is for one user. Unauthorized sharing or resale is strictly prohibited.</p>
+    <p>Each license key grants access to one user. Unauthorized sharing or resale is prohibited.</p>
     <h3>3. Liability</h3>
-    <p>We are not responsible for financial or investment decisions made based on AI predictions.</p>
+    <p>We are not responsible for financial decisions made using AI predictions.</p>
     <h3>4. Contact</h3>
-    <p>For inquiries, contact us at <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a></p>
+    <p>Email: <a href="mailto:realestate-ai.agency@zohomail.eu">realestate-ai.agency@zohomail.eu</a></p>
   </div>
 
-  <!-- Russian -->
   <div id="ru" style="display:none;">
     <h2>Условия использования</h2>
     <p>Добро пожаловать в Real Estate AI Agency («мы»). Используя наш сайт и сервисы, вы соглашаетесь с настоящими условиями.</p>
     <h3>1. Услуги</h3>
-    <p>Наша платформа предоставляет инструменты анализа и оценки недвижимости с использованием искусственного интеллекта.</p>
+    <p>Наша платформа предоставляет аналитические инструменты и оценку недвижимости с использованием искусственного интеллекта.</p>
     <h3>2. Лицензии</h3>
-    <p>Каждый лицензионный ключ предназначен для одного пользователя. Передача и перепродажа ключей запрещена.</p>
+    <p>Каждый лицензионный ключ предназначен для одного пользователя. Передача ключей запрещена.</p>
     <h3>3. Ответственность</h3>
-    <p>Мы не несём ответственности за финансовые решения, основанные на прогнозах ИИ.</p>
+    <p>Мы не несём ответственности за решения, основанные на прогнозах ИИ.</p>
     <h3>4. Контакты</h3>
-    <p>По вопросам обращайтесь: <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a></p>
+    <p>Электронная почта: <a href="mailto:realestate-ai.agency@zohomail.eu">realestate-ai.agency@zohomail.eu</a></p>
   </div>
 
   <footer>
-    © 2025 Real Estate AI Agency — Developed by Viktor Yevtushenko<br>
+    © 2025 Real Estate AI Agency — Developed by Viktor Yevtushenko<br />
     Real Estate AI Agency (Individual Entrepreneur Viktor Yevtushenko)
   </footer>
+
+  <script>
+    const langSelect = document.getElementById("languageSelect");
+    const en = document.getElementById("en");
+    const ru = document.getElementById("ru");
+
+    function setLanguage(lang) {
+      document.body.style.opacity = "0";
+      setTimeout(() => {
+        if (lang === "ru") {
+          ru.style.display = "block";
+          en.style.display = "none";
+        } else {
+          ru.style.display = "none";
+          en.style.display = "block";
+        }
+        localStorage.setItem("lang", lang);
+        langSelect.value = lang;
+        document.body.style.opacity = "1";
+      }, 300);
+    }
+
+    const savedLang = localStorage.getItem("lang") || (navigator.language.startsWith("ru") ? "ru" : "en");
+    setLanguage(savedLang);
+    langSelect.addEventListener("change", (e) => setLanguage(e.target.value));
+  </script>
 </body>
 </html>
