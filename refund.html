@@ -12,8 +12,8 @@
   footer { text-align: center; margin-top: 60px; color: #9ca3af; font-size: 0.9em; }
 </style>
 <script>
-  const lang = navigator.language || navigator.userLanguage;
   window.onload = () => {
+    const lang = navigator.language || navigator.userLanguage;
     const isRu = lang.startsWith("ru");
     document.getElementById("en").style.display = isRu ? "none" : "block";
     document.getElementById("ru").style.display = isRu ? "block" : "none";
@@ -23,26 +23,28 @@
 <body>
   <h1>🏠 Real Estate AI Agency — Intelligent Property Solutions</h1>
 
+  <!-- English -->
   <div id="en">
     <h2>Refund Policy</h2>
-    <p>We aim for full client satisfaction. Refund requests are processed under these rules:</p>
+    <p>We aim for customer satisfaction. Refunds are handled as follows:</p>
     <h3>1. Eligibility</h3>
     <p>Refunds are available within 7 days if the license key has not been activated.</p>
     <h3>2. Exceptions</h3>
-    <p>No refunds can be issued after a license is activated or used.</p>
+    <p>Once a license key has been activated, refunds are not available.</p>
     <h3>3. How to request</h3>
-    <p>To request a refund, email us at <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a></p>
+    <p>To request a refund, contact us at <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a></p>
   </div>
 
+  <!-- Russian -->
   <div id="ru" style="display:none;">
     <h2>Политика возврата</h2>
-    <p>Мы стремимся к удовлетворённости клиентов. Возвраты возможны при следующих условиях:</p>
-    <h3>1. Условия</h3>
-    <p>Возврат возможен в течение 7 дней, если ключ не был активирован.</p>
+    <p>Мы стремимся к удовлетворённости клиентов. Возвраты осуществляются по следующим правилам:</p>
+    <h3>1. Условия возврата</h3>
+    <p>Возврат возможен в течение 7 дней после покупки, если лицензионный ключ не был активирован.</p>
     <h3>2. Исключения</h3>
-    <p>После активации лицензионного ключа возврат невозможен.</p>
-    <h3>3. Как запросить</h3>
-    <p>Для возврата напишите нам: <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a></p>
+    <p>После активации ключа возврат невозможен, так как доступ к цифровому продукту уже предоставлен.</p>
+    <h3>3. Как запросить возврат</h3>
+    <p>Для запроса возврата напишите на <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a></p>
   </div>
 
   <footer>
