@@ -1,59 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Privacy Policy — Real Estate AI Agency</title>
 <style>
-  body { background-color: #0b1120; color: #e5e7eb; font-family: "Inter", sans-serif; margin: 40px auto; max-width: 850px; line-height: 1.7; }
+  body {
+    background-color: #0b1120;
+    color: #e5e7eb;
+    font-family: "Inter", sans-serif;
+    margin: 40px auto;
+    max-width: 850px;
+    line-height: 1.7;
+    transition: opacity 0.3s ease;
+  }
   h1, h2 { color: #60a5fa; }
   a { color: #93c5fd; text-decoration: none; }
   a:hover { text-decoration: underline; }
   footer { text-align: center; margin-top: 60px; color: #9ca3af; font-size: 0.9em; }
+  .lang-select { position: fixed; top: 20px; right: 20px; background: #1e293b; color: #e5e7eb; border: none; border-radius: 6px; padding: 6px 10px; }
 </style>
-<script>
-  window.onload = () => {
-    const lang = navigator.language || navigator.userLanguage;
-    const isRu = lang.startsWith("ru");
-    document.getElementById("en").style.display = isRu ? "none" : "block";
-    document.getElementById("ru").style.display = isRu ? "block" : "none";
-  };
-</script>
 </head>
 <body>
+  <select id="languageSelect" class="lang-select">
+    <option value="en">🌐 English</option>
+    <option value="ru">🇷🇺 Русский</option>
+  </select>
+
   <h1>🏠 Real Estate AI Agency — Intelligent Property Solutions</h1>
 
-  <!-- English -->
   <div id="en">
     <h2>Privacy Policy</h2>
-    <p>We respect your privacy. This policy explains how we collect and handle your data.</p>
-    <h3>1. Information Collection</h3>
-    <p>We collect your email and license key for authentication and support. Uploaded files remain private and secure.</p>
-    <h3>2. Cookies</h3>
-    <p>Cookies may be used to enhance user experience. You can disable them in browser settings.</p>
+    <p>We at Real Estate AI Agency (“we”, “our”, “us”) respect your privacy. This Privacy Policy describes how we collect, use, and protect your information.</p>
+    <h3>1. Data Collection</h3>
+    <p>We collect minimal personal data such as your email and license key to enable access to our AI tools.</p>
+    <h3>2. Data Use</h3>
+    <p>Your information is used only for license validation, analytics, and service improvements. We never sell your data.</p>
     <h3>3. Security</h3>
-    <p>We apply modern encryption and security measures to protect user data.</p>
+    <p>We use encryption and secure APIs to protect your information from unauthorized access.</p>
     <h3>4. Contact</h3>
-    <p>For privacy-related inquiries, email <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a></p>
+    <p>If you have questions about this policy, contact us at <a href="mailto:realestate-ai.agency@zohomail.eu">realestate-ai.agency@zohomail.eu</a>.</p>
   </div>
 
-  <!-- Russian -->
   <div id="ru" style="display:none;">
     <h2>Политика конфиденциальности</h2>
-    <p>Мы уважаем вашу конфиденциальность. В этой политике описано, как мы собираем и обрабатываем ваши данные.</p>
-    <h3>1. Сбор информации</h3>
-    <p>Мы собираем адрес электронной почты и лицензионный ключ для авторизации и поддержки. Загруженные файлы остаются конфиденциальными.</p>
-    <h3>2. Cookies</h3>
-    <p>Cookies используются для улучшения пользовательского опыта. Вы можете отключить их в настройках браузера.</p>
+    <p>Мы в Real Estate AI Agency («мы») уважаем вашу конфиденциальность. Настоящая политика описывает, как мы собираем, используем и защищаем ваши данные.</p>
+    <h3>1. Сбор данных</h3>
+    <p>Мы собираем минимальный объём данных, таких как email и лицензионный ключ, чтобы предоставить доступ к инструментам ИИ.</p>
+    <h3>2. Использование данных</h3>
+    <p>Информация используется только для проверки лицензий, аналитики и улучшения сервиса. Мы никогда не продаём ваши данные.</p>
     <h3>3. Безопасность</h3>
-    <p>Мы применяем современные технологии шифрования для защиты данных пользователей.</p>
+    <p>Мы используем шифрование и защищённые API для защиты ваших данных от несанкционированного доступа.</p>
     <h3>4. Контакты</h3>
-    <p>По вопросам конфиденциальности: <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a></p>
+    <p>Если у вас есть вопросы, напишите нам: <a href="mailto:realestate-ai.agency@zohomail.eu">realestate-ai.agency@zohomail.eu</a>.</p>
   </div>
 
   <footer>
-    © 2025 Real Estate AI Agency — Developed by Viktor Yevtushenko<br>
+    © 2025 Real Estate AI Agency — Developed by Viktor Yevtushenko<br />
     Real Estate AI Agency (Individual Entrepreneur Viktor Yevtushenko)
   </footer>
+
+  <script>
+    const langSelect = document.getElementById("languageSelect");
+    const en = document.getElementById("en");
+    const ru = document.getElementById("ru");
+
+    function setLanguage(lang) {
+      document.body.style.opacity = "0";
+      setTimeout(() => {
+        if (lang === "ru") {
+          ru.style.display = "block";
+          en.style.display = "none";
+        } else {
+          ru.style.display = "none";
+          en.style.display = "block";
+        }
+        localStorage.setItem("lang", lang);
+        langSelect.value = lang;
+        document.body.style.opacity = "1";
+      }, 300);
+    }
+
+    const savedLang = localStorage.getItem("lang") || (navigator.language.startsWith("ru") ? "ru" : "en");
+    setLanguage(savedLang);
+    langSelect.addEventListener("change", (e) => setLanguage(e.target.value));
+  </script>
 </body>
 </html>
