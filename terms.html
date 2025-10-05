@@ -5,17 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Terms & Conditions — Real Estate AI Agency</title>
 <style>
-  body { font-family: "Inter", sans-serif; margin: 40px auto; max-width: 800px; line-height: 1.6; color: #1f2937; background: #f9fafb; }
-  h1, h2 { color: #1E3A8A; }
-  footer { text-align: center; margin-top: 50px; color: #6b7280; font-size: 0.9em; }
+  body { background-color: #0b1120; color: #e5e7eb; font-family: "Inter", sans-serif; margin: 40px auto; max-width: 850px; line-height: 1.7; }
+  h1, h2 { color: #60a5fa; }
+  a { color: #93c5fd; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  footer { text-align: center; margin-top: 60px; color: #9ca3af; font-size: 0.9em; }
 </style>
 <script>
-  const userLang = navigator.language || navigator.userLanguage;
-  const isRu = userLang.startsWith('ru');
+  const lang = navigator.language || navigator.userLanguage;
   window.onload = () => {
-    document.getElementById('en').style.display = isRu ? 'none' : 'block';
-    document.getElementById('ru').style.display = isRu ? 'block' : 'none';
-  }
+    const isRu = lang.startsWith("ru");
+    document.getElementById("en").style.display = isRu ? "none" : "block";
+    document.getElementById("ru").style.display = isRu ? "block" : "none";
+  };
 </script>
 </head>
 <body>
@@ -23,28 +25,28 @@
 
   <div id="en">
     <h2>Terms & Conditions</h2>
-    <p>Welcome to Real Estate AI Agency (“we”, “our”, “us”). By using our website and AI services, you agree to comply with these Terms & Conditions.</p>
+    <p>Welcome to Real Estate AI Agency (“we”, “our”, “us”). By using our website and AI-based tools, you agree to these Terms & Conditions.</p>
     <h3>1. Services</h3>
-    <p>Our platform provides AI-based analytics and property valuation tools. You agree not to misuse, redistribute, or resell our services.</p>
-    <h3>2. Licensing</h3>
-    <p>Each license key grants access to one user account. Sharing or unauthorized distribution of license keys is prohibited.</p>
-    <h3>3. Limitation of Liability</h3>
-    <p>We are not responsible for financial losses or decisions made based on AI predictions. Use our tools for educational and analytical purposes.</p>
+    <p>Our service provides property valuation and data analytics using artificial intelligence.</p>
+    <h3>2. Licenses</h3>
+    <p>Each license key grants access to one individual user. Unauthorized sharing or resale is prohibited.</p>
+    <h3>3. Liability</h3>
+    <p>We are not liable for financial or investment decisions made based on AI predictions.</p>
     <h3>4. Contact</h3>
-    <p>For questions, contact <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a>.</p>
+    <p>For questions: <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a></p>
   </div>
 
   <div id="ru" style="display:none;">
     <h2>Условия использования</h2>
-    <p>Добро пожаловать в Real Estate AI Agency («мы», «наш», «нас»). Используя наш сайт и ИИ-сервисы, вы соглашаетесь соблюдать настоящие условия.</p>
+    <p>Добро пожаловать в Real Estate AI Agency («мы»). Используя наш сайт и ИИ-инструменты, вы соглашаетесь с настоящими условиями.</p>
     <h3>1. Услуги</h3>
-    <p>Наша платформа предоставляет инструменты анализа и оценки недвижимости на основе искусственного интеллекта. Вы соглашаетесь не использовать их во вред или для перепродажи.</p>
+    <p>Сервис предоставляет аналитические инструменты и оценку недвижимости с использованием искусственного интеллекта.</p>
     <h3>2. Лицензии</h3>
-    <p>Каждый лицензионный ключ предоставляет доступ одному пользователю. Передача ключей третьим лицам запрещена.</p>
-    <h3>3. Ограничение ответственности</h3>
-    <p>Мы не несем ответственности за финансовые решения, принятые на основе прогнозов. Используйте сервис для анализа и обучения.</p>
+    <p>Каждый лицензионный ключ предназначен для одного пользователя. Передача третьим лицам запрещена.</p>
+    <h3>3. Ответственность</h3>
+    <p>Мы не несём ответственности за финансовые решения, принятые на основе прогнозов.</p>
     <h3>4. Контакты</h3>
-    <p>По вопросам обращайтесь: <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a>.</p>
+    <p>Связаться: <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a></p>
   </div>
 
   <footer>
