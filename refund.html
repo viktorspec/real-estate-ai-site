@@ -23,7 +23,8 @@
 </head>
 <body>
   <select id="languageSelect" class="lang-select">
-    <option value="en">🌐 English</option>
+    <option value="" disabled selected>🌐 Select language</option>
+    <option value="en">🇬🇧 English</option>
     <option value="ru">🇷🇺 Русский</option>
   </select>
 
@@ -31,36 +32,36 @@
 
   <div id="en">
     <h2>Refund Policy</h2>
-    <p>We at Real Estate AI Agency aim for full satisfaction with our digital products and AI services.</p>
+    <p>Thank you for choosing Real Estate AI Agency. We strive to ensure that our clients are fully satisfied with our digital products and services.</p>
 
-    <h3>1. Refund Eligibility</h3>
-    <p>Refunds are available only for purchases made directly through our website within 14 days of payment, provided the license has not been activated or used for generating predictions.</p>
+    <h3>1. Eligibility for Refund</h3>
+    <p>Refunds are available only for purchases made directly through our official platform and within 14 days of the transaction, provided that the license key has not been activated.</p>
 
-    <h3>2. How to Request a Refund</h3>
-    <p>To request a refund, please contact us at <a href="mailto:realestate-ai.agency@zohomail.eu">realestate-ai.agency@zohomail.eu</a> and include your license key and payment details.</p>
+    <h3>2. Non-Refundable Cases</h3>
+    <p>We cannot issue refunds for activated licenses, downloaded files, or custom AI integrations already delivered to the client.</p>
 
-    <h3>3. Non-refundable Situations</h3>
-    <p>Refunds will not be issued for licenses that have been activated, used, or shared.</p>
+    <h3>3. Refund Process</h3>
+    <p>To request a refund, please contact us at <a href="mailto:realestate-ai.agency@zohomail.eu">realestate-ai.agency@zohomail.eu</a> with your order ID and payment details. Our team will review your request within 3–5 business days.</p>
 
-    <h3>4. Processing Time</h3>
-    <p>Approved refunds are processed within 5–10 business days, depending on your payment provider.</p>
+    <h3>4. Contact</h3>
+    <p>If you have any questions regarding our refund policy, please contact our support team.</p>
   </div>
 
   <div id="ru" style="display:none;">
     <h2>Политика возвратов</h2>
-    <p>В Real Estate AI Agency мы стремимся к полному удовлетворению клиентов качеством наших цифровых продуктов и сервисов ИИ.</p>
+    <p>Благодарим вас за выбор Real Estate AI Agency. Мы стремимся обеспечить полное удовлетворение наших клиентов качеством цифровых продуктов и услуг.</p>
 
     <h3>1. Условия возврата</h3>
-    <p>Возврат возможен только для покупок, совершённых напрямую на нашем сайте в течение 14 дней после оплаты, при условии, что лицензия не была активирована и не использовалась для прогнозов.</p>
+    <p>Возврат средств возможен только для покупок, совершённых через официальную платформу, в течение 14 дней после транзакции, при условии, что лицензионный ключ не был активирован.</p>
 
-    <h3>2. Как запросить возврат</h3>
-    <p>Чтобы запросить возврат, напишите на <a href="mailto:realestate-ai.agency@zohomail.eu">realestate-ai.agency@zohomail.eu</a> и укажите лицензионный ключ и данные оплаты.</p>
+    <h3>2. Случаи без возврата</h3>
+    <p>Возврат средств не производится за активированные лицензии, загруженные файлы и индивидуальные AI-интеграции, уже выполненные для клиента.</p>
 
-    <h3>3. Случаи, не подлежащие возврату</h3>
-    <p>Возврат невозможен, если лицензия уже была активирована, использована или передана третьим лицам.</p>
+    <h3>3. Процесс возврата</h3>
+    <p>Чтобы запросить возврат, напишите нам на <a href="mailto:realestate-ai.agency@zohomail.eu">realestate-ai.agency@zohomail.eu</a>, указав ID заказа и детали платежа. Мы рассмотрим ваш запрос в течение 3–5 рабочих дней.</p>
 
-    <h3>4. Срок обработки</h3>
-    <p>Одобренные возвраты обрабатываются в течение 5–10 рабочих дней в зависимости от платёжного провайдера.</p>
+    <h3>4. Контакты</h3>
+    <p>Если у вас есть вопросы о политике возвратов, пожалуйста, свяжитесь с нашей службой поддержки.</p>
   </div>
 
   <footer>
@@ -92,6 +93,7 @@
     const savedLang = localStorage.getItem("lang") || (navigator.language.startsWith("ru") ? "ru" : "en");
     setLanguage(savedLang);
     langSelect.addEventListener("change", (e) => setLanguage(e.target.value));
+    langSelect.querySelector('option[value=""]').style.display = 'none';
   </script>
 </body>
 </html>
