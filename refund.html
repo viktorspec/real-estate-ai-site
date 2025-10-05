@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Refund Policy — Real Estate AI Agency</title>
+<style>
+  body { font-family: "Inter", sans-serif; margin: 40px auto; max-width: 800px; line-height: 1.6; color: #1f2937; background: #f9fafb; }
+  h1, h2 { color: #1E3A8A; }
+  footer { text-align: center; margin-top: 50px; color: #6b7280; font-size: 0.9em; }
+</style>
+<script>
+  const userLang = navigator.language || navigator.userLanguage;
+  const isRu = userLang.startsWith('ru');
+  window.onload = () => {
+    document.getElementById('en').style.display = isRu ? 'none' : 'block';
+    document.getElementById('ru').style.display = isRu ? 'block' : 'none';
+  }
+</script>
+</head>
+<body>
+  <h1>🏠 Real Estate AI Agency — Intelligent Property Solutions</h1>
+
+  <div id="en">
+    <h2>Refund Policy</h2>
+    <p>We strive to ensure customer satisfaction. Refunds are handled as follows:</p>
+    <h3>1. Eligibility</h3>
+    <p>Refunds can be issued within 7 days of purchase if no AI license key has been activated.</p>
+    <h3>2. Non-refundable</h3>
+    <p>After activation of a license key, refunds are not available.</p>
+    <h3>3. How to request</h3>
+    <p>To request a refund, contact us at <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a>.</p>
+  </div>
+
+  <div id="ru" style="display:none;">
+    <h2>Политика возврата</h2>
+    <p>Мы стремимся к удовлетворению клиентов. Возврат возможен при соблюдении следующих условий:</p>
+    <h3>1. Условия возврата</h3>
+    <p>Возврат средств возможен в течение 7 дней после покупки, если лицензионный ключ не был активирован.</p>
+    <h3>2. Без возврата</h3>
+    <p>После активации ключа возврат средств невозможен.</p>
+    <h3>3. Как запросить возврат</h3>
+    <p>Для возврата напишите на <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a>.</p>
+  </div>
+
+  <footer>
+    © 2025 Real Estate AI Agency — Developed by Viktor Yevtushenko<br>
+    Real Estate AI Agency (Individual Entrepreneur Viktor Yevtushenko)
+  </footer>
+</body>
+</html>
