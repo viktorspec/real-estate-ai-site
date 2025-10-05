@@ -12,8 +12,8 @@
   footer { text-align: center; margin-top: 60px; color: #9ca3af; font-size: 0.9em; }
 </style>
 <script>
-  const lang = navigator.language || navigator.userLanguage;
   window.onload = () => {
+    const lang = navigator.language || navigator.userLanguage;
     const isRu = lang.startsWith("ru");
     document.getElementById("en").style.display = isRu ? "none" : "block";
     document.getElementById("ru").style.display = isRu ? "block" : "none";
@@ -23,30 +23,32 @@
 <body>
   <h1>🏠 Real Estate AI Agency — Intelligent Property Solutions</h1>
 
+  <!-- English -->
   <div id="en">
     <h2>Terms & Conditions</h2>
     <p>Welcome to Real Estate AI Agency (“we”, “our”, “us”). By using our website and AI-based tools, you agree to these Terms & Conditions.</p>
     <h3>1. Services</h3>
-    <p>Our service provides property valuation and data analytics using artificial intelligence.</p>
+    <p>Our service provides data analytics and property valuation using artificial intelligence.</p>
     <h3>2. Licenses</h3>
-    <p>Each license key grants access to one individual user. Unauthorized sharing or resale is prohibited.</p>
+    <p>Each license key is for one user. Unauthorized sharing or resale is strictly prohibited.</p>
     <h3>3. Liability</h3>
-    <p>We are not liable for financial or investment decisions made based on AI predictions.</p>
+    <p>We are not responsible for financial or investment decisions made based on AI predictions.</p>
     <h3>4. Contact</h3>
-    <p>For questions: <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a></p>
+    <p>For inquiries, contact us at <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a></p>
   </div>
 
+  <!-- Russian -->
   <div id="ru" style="display:none;">
     <h2>Условия использования</h2>
-    <p>Добро пожаловать в Real Estate AI Agency («мы»). Используя наш сайт и ИИ-инструменты, вы соглашаетесь с настоящими условиями.</p>
+    <p>Добро пожаловать в Real Estate AI Agency («мы»). Используя наш сайт и сервисы, вы соглашаетесь с настоящими условиями.</p>
     <h3>1. Услуги</h3>
-    <p>Сервис предоставляет аналитические инструменты и оценку недвижимости с использованием искусственного интеллекта.</p>
+    <p>Наша платформа предоставляет инструменты анализа и оценки недвижимости с использованием искусственного интеллекта.</p>
     <h3>2. Лицензии</h3>
-    <p>Каждый лицензионный ключ предназначен для одного пользователя. Передача третьим лицам запрещена.</p>
+    <p>Каждый лицензионный ключ предназначен для одного пользователя. Передача и перепродажа ключей запрещена.</p>
     <h3>3. Ответственность</h3>
-    <p>Мы не несём ответственности за финансовые решения, принятые на основе прогнозов.</p>
+    <p>Мы не несём ответственности за финансовые решения, основанные на прогнозах ИИ.</p>
     <h3>4. Контакты</h3>
-    <p>Связаться: <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a></p>
+    <p>По вопросам обращайтесь: <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a></p>
   </div>
 
   <footer>
