@@ -12,8 +12,8 @@
   footer { text-align: center; margin-top: 60px; color: #9ca3af; font-size: 0.9em; }
 </style>
 <script>
-  const lang = navigator.language || navigator.userLanguage;
   window.onload = () => {
+    const lang = navigator.language || navigator.userLanguage;
     const isRu = lang.startsWith("ru");
     document.getElementById("en").style.display = isRu ? "none" : "block";
     document.getElementById("ru").style.display = isRu ? "block" : "none";
@@ -23,30 +23,32 @@
 <body>
   <h1>🏠 Real Estate AI Agency — Intelligent Property Solutions</h1>
 
+  <!-- English -->
   <div id="en">
     <h2>Privacy Policy</h2>
-    <p>We respect your privacy. This policy explains how we handle your data.</p>
+    <p>We respect your privacy. This policy explains how we collect and handle your data.</p>
     <h3>1. Information Collection</h3>
-    <p>We collect email and license data for user verification and support. Uploaded files remain private.</p>
+    <p>We collect your email and license key for authentication and support. Uploaded files remain private and secure.</p>
     <h3>2. Cookies</h3>
-    <p>Cookies may be used to improve your browsing experience.</p>
-    <h3>3. Data Security</h3>
-    <p>We implement secure methods to protect user data.</p>
+    <p>Cookies may be used to enhance user experience. You can disable them in browser settings.</p>
+    <h3>3. Security</h3>
+    <p>We apply modern encryption and security measures to protect user data.</p>
     <h3>4. Contact</h3>
-    <p>For privacy-related inquiries: <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a></p>
+    <p>For privacy-related inquiries, email <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a></p>
   </div>
 
+  <!-- Russian -->
   <div id="ru" style="display:none;">
     <h2>Политика конфиденциальности</h2>
-    <p>Мы уважаем вашу конфиденциальность. В этом документе описано, как мы обрабатываем ваши данные.</p>
+    <p>Мы уважаем вашу конфиденциальность. В этой политике описано, как мы собираем и обрабатываем ваши данные.</p>
     <h3>1. Сбор информации</h3>
-    <p>Мы собираем email и лицензионные данные для верификации пользователей. Загруженные файлы остаются конфиденциальными.</p>
+    <p>Мы собираем адрес электронной почты и лицензионный ключ для авторизации и поддержки. Загруженные файлы остаются конфиденциальными.</p>
     <h3>2. Cookies</h3>
-    <p>Cookies используются для улучшения работы сайта.</p>
-    <h3>3. Безопасность данных</h3>
-    <p>Мы используем безопасные методы для защиты информации.</p>
+    <p>Cookies используются для улучшения пользовательского опыта. Вы можете отключить их в настройках браузера.</p>
+    <h3>3. Безопасность</h3>
+    <p>Мы применяем современные технологии шифрования для защиты данных пользователей.</p>
     <h3>4. Контакты</h3>
-    <p>Вопросы по защите данных: <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a></p>
+    <p>По вопросам конфиденциальности: <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a></p>
   </div>
 
   <footer>
