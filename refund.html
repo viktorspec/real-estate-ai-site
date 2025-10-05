@@ -5,17 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Refund Policy — Real Estate AI Agency</title>
 <style>
-  body { font-family: "Inter", sans-serif; margin: 40px auto; max-width: 800px; line-height: 1.6; color: #1f2937; background: #f9fafb; }
-  h1, h2 { color: #1E3A8A; }
-  footer { text-align: center; margin-top: 50px; color: #6b7280; font-size: 0.9em; }
+  body { background-color: #0b1120; color: #e5e7eb; font-family: "Inter", sans-serif; margin: 40px auto; max-width: 850px; line-height: 1.7; }
+  h1, h2 { color: #60a5fa; }
+  a { color: #93c5fd; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  footer { text-align: center; margin-top: 60px; color: #9ca3af; font-size: 0.9em; }
 </style>
 <script>
-  const userLang = navigator.language || navigator.userLanguage;
-  const isRu = userLang.startsWith('ru');
+  const lang = navigator.language || navigator.userLanguage;
   window.onload = () => {
-    document.getElementById('en').style.display = isRu ? 'none' : 'block';
-    document.getElementById('ru').style.display = isRu ? 'block' : 'none';
-  }
+    const isRu = lang.startsWith("ru");
+    document.getElementById("en").style.display = isRu ? "none" : "block";
+    document.getElementById("ru").style.display = isRu ? "block" : "none";
+  };
 </script>
 </head>
 <body>
@@ -23,24 +25,24 @@
 
   <div id="en">
     <h2>Refund Policy</h2>
-    <p>We strive to ensure customer satisfaction. Refunds are handled as follows:</p>
+    <p>We aim for full client satisfaction. Refund requests are processed under these rules:</p>
     <h3>1. Eligibility</h3>
-    <p>Refunds can be issued within 7 days of purchase if no AI license key has been activated.</p>
-    <h3>2. Non-refundable</h3>
-    <p>After activation of a license key, refunds are not available.</p>
+    <p>Refunds are available within 7 days if the license key has not been activated.</p>
+    <h3>2. Exceptions</h3>
+    <p>No refunds can be issued after a license is activated or used.</p>
     <h3>3. How to request</h3>
-    <p>To request a refund, contact us at <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a>.</p>
+    <p>To request a refund, email us at <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a></p>
   </div>
 
   <div id="ru" style="display:none;">
     <h2>Политика возврата</h2>
-    <p>Мы стремимся к удовлетворению клиентов. Возврат возможен при соблюдении следующих условий:</p>
-    <h3>1. Условия возврата</h3>
-    <p>Возврат средств возможен в течение 7 дней после покупки, если лицензионный ключ не был активирован.</p>
-    <h3>2. Без возврата</h3>
-    <p>После активации ключа возврат средств невозможен.</p>
-    <h3>3. Как запросить возврат</h3>
-    <p>Для возврата напишите на <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a>.</p>
+    <p>Мы стремимся к удовлетворённости клиентов. Возвраты возможны при следующих условиях:</p>
+    <h3>1. Условия</h3>
+    <p>Возврат возможен в течение 7 дней, если ключ не был активирован.</p>
+    <h3>2. Исключения</h3>
+    <p>После активации лицензионного ключа возврат невозможен.</p>
+    <h3>3. Как запросить</h3>
+    <p>Для возврата напишите нам: <a href="mailto:viktormatrix37@gmail.com">viktormatrix37@gmail.com</a></p>
   </div>
 
   <footer>
